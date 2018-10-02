@@ -4,8 +4,11 @@ Use your Browser as an Artnet lighting device!
 
 It supports dimmer, red, green and blue channels as well as border, blur and images.
 
-Start with `node weblight.js`. 
+Installation: `npm install -g artnet-weblight` Start: `weblight`
+
+Start from source with `node weblight.js`. 
 Webinterface will be available at `localhost:3000`. It uses standard Artnet port `6454`.
+
 
 
 Each virtual device has 10 channels. First device 0 starts at channel 1, second device 1 at channel 11...
