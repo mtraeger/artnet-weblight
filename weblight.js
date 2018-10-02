@@ -14,10 +14,6 @@ config.artnet = {};
 config.artnet.port = 6454;
 config.artnet.universe = 0;
 
-config.updateClientsMillis = 100;
-
-console.log("Starting Artnet server on port" + config.artnet.port)
-
 
 const buffer = new Array(512).fill(0); //TODO maybe node buffer?
 
@@ -27,6 +23,7 @@ http.listen(3000, function () {
 });
 
 
+console.log("Starting Artnet server on port " + config.artnet.port)
 const srv = artnet.listen(config.artnet.port, function (msg, peer) {
     // console.log("-----------------");
     // console.log("From: " + peer.address);
@@ -62,7 +59,33 @@ const srv = artnet.listen(config.artnet.port, function (msg, peer) {
 app.use('/images', express.static("images"));
 
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
+
+    const channels = buffer
+        .map((value, index) => {
+            var tmp = {};
+            tmp[index] = value;
+            return tmp
+        })
+        .filter((channel, index) => channel[index] > 0)
+        .map(channels => Object.keys(channels)[0])
+        .map(channel => ((channel - 5) / 10).toFixed(0))
+        .map(channel => {
+            if (channel < 1) {
+                return 0
+            }
+            return channel
+        });
+
+    const channelSet = new Set(channels);
+
+    let text = "<h1>Artnet Weblight</h1>";
+    text += "Devices with channel values > 0:";
+    text += "<ul>";
+    channelSet.forEach(device => {
+        text += "<li><a href='/" + device + "'>Device " + device + "</a> (<a href='/" + device + "?debug'>Debug</a>)"
+    });
+    text += "</ul>";
+    res.send(text);
 });
 
 app.get('/js/jquery.js', function (req, res) {
@@ -124,5 +147,3 @@ function updateAllClients() {
         updateClient(i);
     }
 }
-
-// setInterval(updateAllClients, config.updateClientsMillis);

@@ -22,8 +22,6 @@ Use `http://localhost:3000/0?debug` for debugging values.
 * Config-File
 * circle radius
 * color correction - adopt to physical devices
-* show identifier (and debug info) - maybe on image channel
+* show identifier (and debug info) via dmx - maybe on image channel
 * web interface for selecting images / videos + maybe upload
-* start page with available device links (with values)
-* performance optimization (do not send allways)
 
