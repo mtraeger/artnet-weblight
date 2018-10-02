@@ -27,7 +27,7 @@ http.listen(3000, function () {
 });
 
 
-const srv = artnet.listen(config.artnet.port, function (msg, peer, test) {
+const srv = artnet.listen(config.artnet.port, function (msg, peer) {
     // console.log("-----------------");
     // console.log("From: " + peer.address);
     // console.log("Sequence: " + msg.sequence);
