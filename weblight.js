@@ -56,13 +56,22 @@ const srv = artnet.listen(config.artnet.port, function (msg, peer) {
         });
 });
 
+
+app.get('/js/jquery.js', function (req, res) {
+    res.sendFile(__dirname + '/js/jquery.js')
+});
+
+app.get('/css/style.css', function (req, res) {
+    res.sendFile(__dirname + '/css/style.css')
+});
+
 app.use('/images', express.static("images"));
 
 app.get('/', function (req, res) {
-
+    // Overview Page
     const channels = buffer
         .map((value, index) => {
-            var tmp = {};
+            const tmp = {};
             tmp[index] = value;
             return tmp
         })
@@ -87,14 +96,6 @@ app.get('/', function (req, res) {
     text += "</ul>";
     res.send(text);
 });
-
-app.get('/js/jquery.js', function (req, res) {
-    res.sendFile(__dirname + '/js/jquery.js')
-})
-
-app.get('/css/style.css', function (req, res) {
-    res.sendFile(__dirname + '/css/style.css')
-})
 
 app.get('/:id', function (req, res) {
     const channelId = req.params.id * 10;
