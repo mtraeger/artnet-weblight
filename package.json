@@ -1,8 +1,8 @@
 {
 		"name": "artnet-weblight",
-		"version": "0.0.1",
+		"version": "0.0.2",
 		"author": "Michael Träger",
-		"description": "Artnet-Weblight Device Server",
+		"description": "Artnet-Weblight Device Server - Use your Browser as an Artnet lighting device!",
 		"url": "https://github.com/mtraeger/artnet-weblight",
 		"main": "dmx.js",
 		"bin": {
@@ -14,7 +14,10 @@
 		},
 		"keywords": [
 				"artnet",
-				"server"
+				"art-net",
+				"server",
+				"dmx",
+				"rgb"
 		],
 		"dependencies": {
 				"artnet-node": "0.1.x",
