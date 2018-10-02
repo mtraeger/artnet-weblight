@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <title>Artnet Weblight</title>
+
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="/js/jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        $(function () {
+            const socket = io();
+
+            let deviceNr = window.location.pathname.substr(1);
+            if (!deviceNr) deviceNr = 0;
+            const deviceId = "dev" + deviceNr;
+
+            socket.on(deviceId, function (msg) {
+                const print = function (input) {
+                    return "Device " + deviceNr + " | Red: " + input.r + " Green: " + input.g + " Blue: " + input.b + " Alpha " + input.a +
+                        " Border: " + input.border + " Blur: " + input.blur + " Image: " + input.image;
+                };
+                if (window.location.search.substr(1) === 'debug') {
+                    $('#debug').text(print(msg));
+                    $('#debug').css('display', 'inline');
+                }
+
+                $('body').css('background-color', 'rgba(' + msg.r + ', ' + msg.g + ', ' + msg.b + ', ' + msg.a + ')');
+
+                const screenSizeMax = window.innerWidth < window.innerHeight ? window.innerWidth : window.innerHeight;
+                $('body').css('box-shadow', '0px 0px ' + (msg.blur / 255 * screenSizeMax / 4) + 'px ' + (msg.border / 255 * screenSizeMax / 2 + 1) + 'px #000000 inset');
+
+                if (msg.image !== "none") {
+                    $('body').css('background-image', 'url(/' + msg.image + ')');
+                } else {
+                    $('body').css('background-image', '');
+                }
+
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div>
+    <span id="debug"></span>
+</div>
+
+<!--<div id="circlebox"></div>-->
+
+</body>
+</html>
