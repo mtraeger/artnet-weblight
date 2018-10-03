@@ -68,6 +68,10 @@ app.get('/css/style.css', function (req, res) {
 
 app.use('/images', express.static("images"));
 
+app.get('/frames', function (req, res) {
+    res.sendFile(__dirname + '/frames.html')
+});
+
 app.get('/', function (req, res) {
     // Overview Page
     const channels = buffer

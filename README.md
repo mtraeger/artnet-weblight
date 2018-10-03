@@ -34,8 +34,15 @@ Image 0 is empty. So you can use 25 images.
 
 
 ## More
+
+### Debugging Artnet
 Use `http://localhost:3000/0?debug` for debugging values.
 
+### Frame View
+Use `http://localhost:3000/frames` to see the first four devices on one page with debug info enabled.
+
+
+### Testing
 For Testing you can use https://github.com/mtraeger/dmx-webcontrol and configure a (separate) universe like this:
 ```
 "monitor": {
