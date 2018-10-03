@@ -2,7 +2,7 @@
 "use strict";
 
 // const artnet = require('artnet-node').Server;
-const artnet = require('./lib/artnet_server');
+const artnet = require('./lib/artnet_server'); // NPM-Version of artnet-lib is buggy...
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
