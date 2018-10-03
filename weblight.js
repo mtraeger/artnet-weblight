@@ -98,7 +98,8 @@ app.get('/', function (req, res) {
     channelSet.forEach(device => {
         text += "<li><a href='/" + device + "'>Device " + device + "</a> (<a href='/" + device + "?debug'>Debug</a>)"
     });
-    text += "</ul>";
+    text += "</ul><br>";
+    text += "<a href='/frames'>Frames Debug</a>";
     res.send(text);
 });
 
@@ -118,7 +119,6 @@ app.get('/:id', function (req, res) {
 
 
 io.on('connection', function (socket) {
-    console.log('a browser connected');
     updateAllClients();
 });
 
