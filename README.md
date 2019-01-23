@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/artnet-weblight.png?compact=true)](https://npmjs.org/package/artnet-weblight)
+
 # Artnet Weblight
 
 Use your Browser as an Artnet lighting device!
