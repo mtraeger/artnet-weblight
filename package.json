@@ -1,6 +1,6 @@
 {
 		"name": "artnet-weblight",
-		"version": "1.0.0",
+		"version": "1.0.1",
 		"author": "Michael Träger",
 		"description": "Artnet-Weblight Device Server - Use your Browser as an Artnet lighting device!",
 		"url": "https://github.com/mtraeger/artnet-weblight",

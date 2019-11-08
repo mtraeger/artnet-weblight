@@ -15,6 +15,7 @@ Webinterface will be available at `localhost:3000`. It uses standard Artnet port
 ## Devices
 
 Each virtual device has 10 channels. First device 0 starts at channel 1, second device 1 at channel 11...
+
 50 devices are possible on one universe (one instance of this application).
 
 Access devices via `address:port/device#`, e.g. `localhost:3000/0`.
@@ -22,6 +23,7 @@ Access devices via `address:port/device#`, e.g. `localhost:3000/0`.
 ### Images
 The images can be placed in `/images`. Every image has 10 dmx-values where it is visible.
 The images can / should be numbered XX.filetype (e.g. 1.png) for preserving correct order.
+
 Image 0 is empty. So you can use 25 images. Images are channel 6.
 
 
