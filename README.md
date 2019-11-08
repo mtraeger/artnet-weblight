@@ -20,9 +20,9 @@ Each virtual device has 10 channels. First device 0 starts at channel 1, second 
 Access devices via `address:port/device#`, e.g. `localhost:3000/0`.
 
 ### Images
-The images can be placed in `/images`. Every image has 10 values starting at channel 6 for each. 
-They can / should be numbered XX.filetype (e.g. 1.png) for preserving correct order. 
-Image 0 is empty. So you can use 25 images.
+The images can be placed in `/images`. Every image has 10 dmx-values where it is visible.
+The images can / should be numbered XX.filetype (e.g. 1.png) for preserving correct order.
+Image 0 is empty. So you can use 25 images. Images are channel 6.
 
 
 ### Channels

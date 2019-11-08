@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <title>Artnet Weblight</title>
 
@@ -14,11 +14,12 @@
             if (!deviceNr) deviceNr = 0;
             const deviceId = "dev" + deviceNr;
 
+            const print = function (input) {
+                return "Device " + deviceNr + " | Red: " + input.r + " Green: " + input.g + " Blue: " + input.b + " Alpha " + input.a +
+                    " Border: " + input.border + " Blur: " + input.blur + " Image: " + input.image;
+            };
+
             socket.on(deviceId, function (msg) {
-                const print = function (input) {
-                    return "Device " + deviceNr + " | Red: " + input.r + " Green: " + input.g + " Blue: " + input.b + " Alpha " + input.a +
-                        " Border: " + input.border + " Blur: " + input.blur + " Image: " + input.image;
-                };
                 if (window.location.search.substr(1) === 'debug') {
                     $('#debug').text(print(msg));
                     $('#debug').css('display', 'inline');

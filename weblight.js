@@ -102,8 +102,11 @@ app.get('/', function (req, res) {
     channelSet.forEach(device => {
         text += "<li><a href='/" + device + "'>Device " + device + "</a> (<a href='/" + device + "?debug'>Debug</a>)"
     });
+    if (channelSet.size === 0) {
+        text += '<li>No ArtNet values received yet.'
+    }
     text += "</ul><br>";
-    text += "<a href='/frames'>Frames Debug</a>";
+    text += "<a href='/frames'>Show Multiple Frames</a>";
     res.send(text);
 });
 
