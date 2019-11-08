@@ -43,6 +43,10 @@ Use `http://localhost:3000/0?debug` for debugging values.
 ### Frame View
 Use `http://localhost:3000/frames` to see the first four devices on one page with debug info enabled.
 
+Configure Frame view with params `count` (default 4) and `debug` (default true). Starting device can be varied by using another frame-id, e.g. `/frames/10`.
+
+Example: `http://localhost:3000/frames/10?count=5&debug=false`
+
 
 ### Testing
 For Testing you can use https://github.com/mtraeger/dmx-webcontrol and configure a (separate) universe like this:

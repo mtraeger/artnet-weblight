@@ -4,22 +4,32 @@
     <title>Artnet Weblight Frames</title>
     <!--<link href="./css/style.css" rel="stylesheet">-->
     <script src="/js/jquery.js"></script>
+    <script>
+        $(function () {
+
+            let frameNr = parseInt(window.location.pathname.substr(8));
+            if (!frameNr) frameNr = 0;
+
+            const urlParams = new URLSearchParams(location.search);
+            let frameCount = parseInt(urlParams.get('count'));
+            if (!frameCount) frameCount = 4;
+
+            let debugMode = '?debug';
+            if (urlParams.get('debug') === 'false') {
+                debugMode = '';
+            }
+
+            for (let i = frameNr; i < (frameCount + frameNr); i++) {
+                $('<iframe height="200px" width="100%" src="/' + i + debugMode + '" frameBorder="0"></iframe>', {})
+                    .appendTo('#frames');
+            }
+
+        });
+    </script>
 </head>
 <body style="background-color: #232323">
 
-<div>
-    <div>
-        <iframe height="200px" width="100%" src="/0?debug" frameBorder="0"></iframe>
-    </div>
-    <div>
-        <iframe height="200px" width="100%" src="/1?debug" frameBorder="0"></iframe>
-    </div>
-    <div>
-        <iframe height="200px" width="100%" src="/2?debug" frameBorder="0"></iframe>
-    </div>
-    <div>
-        <iframe height="200px" width="100%" src="/3?debug" frameBorder="0"></iframe>
-    </div>
+<div id="frames">
 
 </div>
 

@@ -72,6 +72,10 @@ app.get('/frames', function (req, res) {
     res.sendFile(__dirname + '/frames.html')
 });
 
+app.get('/frames/:id', function (req, res) {
+    res.sendFile(__dirname + '/frames.html')
+});
+
 app.get('/', function (req, res) {
     // Overview Page
     const channels = buffer
