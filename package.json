@@ -1,10 +1,10 @@
 {
 		"name": "artnet-weblight",
-		"version": "1.0.1",
+		"version": "1.0.2",
 		"author": "Michael Träger",
 		"description": "Artnet-Weblight Device Server - Use your Browser as an Artnet lighting device!",
 		"url": "https://github.com/mtraeger/artnet-weblight",
-		"main": "dmx.js",
+		"main": "weblight.js",
 		"bin": {
 				"weblight": "./weblight.js"
 		},
@@ -24,7 +24,7 @@
 				"commander": "^2.18.0",
 				"express": "^4.16.3",
 				"glob": "^7.1.3",
-				"socket.io": "^2.1.1"
+				"socket.io": "^4.4.1"
 		},
 		"license": "MIT"
 }

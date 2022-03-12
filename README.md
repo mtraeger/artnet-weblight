@@ -14,7 +14,7 @@ Webinterface will be available at `localhost:3000`. It uses standard Artnet port
 
 ## Devices
 
-Each virtual device has 10 channels. First device 0 starts at channel 1, second device 1 at channel 11...
+Each virtual device has 10 channels. First device 0 starts at channel 1, second device 1 at channel 11 and so on...
 
 50 devices are possible on one universe (one instance of this application).
 
@@ -22,7 +22,7 @@ Access devices via `address:port/device#`, e.g. `localhost:3000/0`.
 
 ### Images
 The images can be placed in `/images`. Every image has 10 dmx-values where it is visible.
-The images can / should be numbered XX.filetype (e.g. 1.png) for preserving correct order.
+The images can/should be numbered XX.filetype (e.g. 1.png) for preserving correct order.
 
 Image 0 is empty. So you can use 25 images. Images are channel 6.
 
@@ -78,10 +78,15 @@ For Testing you can use https://github.com/mtraeger/dmx-webcontrol and configure
 }
 ```
 
+### Notes
+
+Some sort of color correction can be done by using the dimmer channel to reduce the overall brightness of the rgb channels. Dimming down to e.g. 80% can bring the monitor colors more towards your physical devices.
+
+
 ### Todo
 * Config-File
 * circle radius
-* color correction - adopt to physical devices
+* color correction - adopt to physical devices (e.g. by predefined dimmer factor to reduce collor brilliance)
 * show identifier (and debug info) via dmx - maybe on image channel
 * web interface for selecting images / videos + maybe upload
 
